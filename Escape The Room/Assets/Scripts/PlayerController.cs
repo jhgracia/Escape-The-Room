@@ -5,29 +5,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    InputManager inputManager;
-    GameManager gameManager;
-
     [SerializeField] float moveSpeed = 3.0f;
 
     public bool IsInteracting { get; private set; }
 
-    void Start()
-    {
-        inputManager = GameObject.Find("Input Manager").GetComponent<InputManager>();
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
-
     private void FixedUpdate()
     {
-        Move();
+        if (MasterManager.main.gameManager.UseMoveAndLook) Move();
     }
 
     private void Move()
     {
-        if (inputManager.MoveValue == Vector2.zero) return;
+        if (MasterManager.main.inputManager.MoveValue == Vector2.zero) return;
 
-        Vector3 moveDirectionV3 = new Vector3(inputManager.MoveValue.x, 0f, inputManager.MoveValue.y);
+        Vector3 moveDirectionV3 = new Vector3(MasterManager.main.inputManager.MoveValue.x, 0f, MasterManager.main.inputManager.MoveValue.y);
         transform.Translate(moveSpeed * Time.deltaTime * moveDirectionV3);
     }
 
@@ -36,7 +27,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Interactable"))
         {
             IsInteracting = true;
-            gameManager.ChangeCursorLockState(CursorLockMode.None);
+            //MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.None);
         }
     }
 
@@ -45,7 +36,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Interactable"))
         {
             IsInteracting = false;
-            gameManager.ChangeCursorLockState(CursorLockMode.Locked);
+//            MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.Locked);
         }
             
     }

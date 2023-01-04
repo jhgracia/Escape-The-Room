@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class KeyPad : MonoBehaviour
+public class KeyPad : SecondaryCamCaller
 {
-    public TextMeshProUGUI screen;
-    public GameObject door;
-    KeyButton keyButton;
-    bool isDoorOpen;
+    [Space]
+    [Space]
+    [SerializeField] TextMeshProUGUI screen;
+    [SerializeField] Door door;
+    [SerializeField] KeyButton keyButton;
 
-    private void Start()
-    {
-        keyButton = GameObject.Find("Key Screen").GetComponent<KeyButton>();
-    }
+    public bool IsDoorOpenning { get; private set; }
 
     public void AddNumberToScreen(string number)
     {
+        //Called by the keypad's numerical buttons to enter the numbers in the text field acting as the screen
+
         if (screen.text.Length >= 6) return;
 
         if (screen.text == "0")
@@ -31,27 +31,48 @@ public class KeyPad : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (screen.text == "0" || keyButton.Key == 0 || isDoorOpen) return;
+        //Called by the keypad's enter button to try and open the door
+
+        if (screen.text == "0" || keyButton.Key == 0 || door.IsOpen) return;
 
         int localKey;
         if (int.TryParse(screen.text, out localKey))
         {
-            if (localKey == keyButton.Key) StartCoroutine(OnOpenDoor());
+            if (localKey == keyButton.Key)
+            {
+                IsDoorOpenning = true;
+                door.Open(); 
+            }
         }
     }
 
-    IEnumerator OnOpenDoor()
+    public void Activate()
     {
-        isDoorOpen = true;
+        //Scales the keypad up so it becomes visible and calls the secondary camera to face the keypad
+
+        StartCoroutine(ScaleKeyPad(Vector3.one));
+        CallCamera();
+    }
+
+    public void Deactivate()
+    {
+        //Scales the keypad down so it becomes invisible and resets the secondary camera if the door was not opened
+
+        StartCoroutine(ScaleKeyPad(Vector3.zero));
+        if (!IsDoorOpenning) ResetCamera();
+    }
+
+    IEnumerator ScaleKeyPad(Vector3 targetScale)
+    {
+        Vector3 initialScale = transform.localScale;
+
+        if (initialScale == targetScale) yield break;
 
         float step = 0f;
-        Quaternion initialRot = door.transform.rotation;
-        Quaternion finalRot = Quaternion.Euler(new Vector3(initialRot.x, initialRot.y - 90f, initialRot.z));
-
-        while (step < 1f)
+        while (step < 1.0f)
         {
             step += Time.deltaTime;
-            door.transform.rotation = Quaternion.Slerp(initialRot, finalRot, step);
+            transform.localScale = Vector3.Lerp(initialScale, targetScale, step);
             yield return null;
         }
     }

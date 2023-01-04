@@ -4,37 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class KeyButton : MonoBehaviour
+public class KeyButton : InteractableObject
 {
     public int Key { get; private set; }
     public TextMeshProUGUI keyText;
+    public Image keyScreenImage;
     
     bool isKeyGiven;
 
-    public void GetKey()
+    protected override void ExecuteInteraction()
     {
         if (isKeyGiven) return;
 
+        interacted = true;
+        isKeyGiven = true;
         Key = Random.Range(1, 1000000);
         StartCoroutine(GiveKey());
-        isKeyGiven = true;
+        DeactivateInteractText();
     }
 
     IEnumerator GiveKey()
     {
-        Image image = GetComponent<Image>();
-        Color screenColor = image.color;
+        Color screenColor = keyScreenImage.color;
         float originalAlpha = screenColor.a;
         float step = 0f;
-        float targetAlpha = 140f / 255f;
+        float targetAlpha = 25f / 255f;
         string keyMessage = "Your key is:\n" + Key;
-        string currentText = "";
+        string currentText;
         
         while (step < 1f)
         {
-            step += Time.deltaTime;
+            step += Time.deltaTime / 2;
             screenColor.a = Mathf.Lerp(originalAlpha, targetAlpha, step);
-            image.color = screenColor;
+            keyScreenImage.color = screenColor;
             yield return null;
         }
         
@@ -44,6 +46,7 @@ public class KeyButton : MonoBehaviour
             keyText.SetText(currentText);
             yield return new WaitForSeconds(0.1f);
         }
-        
+
+        OnInteracted.Invoke();
     }
 }

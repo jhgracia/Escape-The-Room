@@ -10,7 +10,7 @@ public class KeyPad : SecondaryCamCaller
     [Space]
     [SerializeField] TextMeshProUGUI screen;
     [SerializeField] Door door;
-    [SerializeField] KeyButton keyButton;
+    [SerializeField] CodeGetter codeGetter;
 
     public bool IsDoorOpenning { get; private set; }
 
@@ -33,12 +33,12 @@ public class KeyPad : SecondaryCamCaller
     {
         //Called by the keypad's enter button to try and open the door
 
-        if (screen.text == "0" || keyButton.Key == 0 || door.IsOpen) return;
+        if (screen.text == "0" || codeGetter.Key == 0 || door.IsOpen) return;
 
         int localKey;
         if (int.TryParse(screen.text, out localKey))
         {
-            if (localKey == keyButton.Key)
+            if (localKey == codeGetter.Key)
             {
                 IsDoorOpenning = true;
                 door.Open(); 

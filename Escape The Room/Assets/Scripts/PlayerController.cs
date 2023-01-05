@@ -6,38 +6,32 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3.0f;
-
-    public bool IsInteracting { get; private set; }
+    [SerializeField] [Range(1f, 20f)] float rotationSpeed = 5.0f;
 
     private void FixedUpdate()
     {
-        if (MasterManager.main.gameManager.UseMoveAndLook) Move();
+        if (MasterManager.main.gameManager.UseMoveAndLook)
+        {
+            Move();
+            Look();
+        }
     }
 
-    private void Move()
+    void Move()
     {
         if (MasterManager.main.inputManager.MoveValue == Vector2.zero) return;
 
-        Vector3 moveDirectionV3 = new Vector3(MasterManager.main.inputManager.MoveValue.x, 0f, MasterManager.main.inputManager.MoveValue.y);
-        transform.Translate(moveSpeed * Time.deltaTime * moveDirectionV3);
+        float x = MasterManager.main.inputManager.MoveValue.x;
+        float z = MasterManager.main.inputManager.MoveValue.y;
+        Vector3 moveDirection = new Vector3(x, 0f, z);
+        transform.Translate(moveSpeed * Time.deltaTime * moveDirection);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void Look()
     {
-        if (collision.gameObject.CompareTag("Interactable"))
+        if (MasterManager.main.inputManager.LookValue.x != 0f)
         {
-            IsInteracting = true;
-            //MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.None);
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * MasterManager.main.inputManager.LookValue.x);
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Interactable"))
-        {
-            IsInteracting = false;
-//            MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.Locked);
-        }
-            
     }
 }

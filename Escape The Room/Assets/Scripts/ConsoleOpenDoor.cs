@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ConsoleOpenDoor : InteractableObject
 {
+    //Game objects' scripts needed for this object
     public KeyPad keyPad;
     public Door door;
     
@@ -12,21 +13,18 @@ public class ConsoleOpenDoor : InteractableObject
         DeactivateInteractText();
         cancelTextGO.SetActive(true);
         MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.None);
-        //StartCoroutine(ScaleKeyPad(Vector3.one));
         keyPad.Activate();
     }
 
-    //protected override void OnStart()
-    //{
-    //    door = keyPad.GetComponent<KeyPad>();
-    //}
-
-    protected override void OnUpdate()
+    protected override void Update()
     {
+        base.Update();
+
         if (!cancelTextGO.activeSelf) return;
 
         if (MasterManager.main.inputManager.GetCancelValue() > 0)
         {
+            //Listen for the Cancel key (Esc)
             CloseKeyPad();
         }
     }
@@ -35,11 +33,12 @@ public class ConsoleOpenDoor : InteractableObject
     {
         cancelTextGO.SetActive(false);
         MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.Locked);
-        //StartCoroutine(ScaleKeyPad(Vector3.zero));
         keyPad.Deactivate();
 
         if (keyPad.IsDoorOpenning)
         {
+            //If the door was successfully opened from the keypad, this object's job is done
+
             interacted = true;
             OnInteracted.Invoke();
             return;
@@ -47,33 +46,4 @@ public class ConsoleOpenDoor : InteractableObject
 
         ActivateInteractText();
     }
-
-    //void CheckDoorStatus()
-    //{
-    //    if (door.IsOpen)
-    //    {
-    //        interacted = true;
-    //        OnInteracted.Invoke();
-    //        return;
-    //    }
-
-    //    ActivateInteractText();
-    //}
-
-    //IEnumerator ScaleKeyPad(Vector3 targetScale)
-    //{
-    //    float step = 0f;
-    //    Vector3 initialScale = keyPad.transform.localScale;
-
-    //    if (initialScale == targetScale) yield break;
-        
-    //    while (step < 1f)
-    //    {
-    //        step += Time.deltaTime;
-    //        keyPad.transform.localScale = Vector3.Lerp(initialScale, targetScale, step);
-    //        yield return null;
-    //    }
-
-    //    if (targetScale == Vector3.zero) CheckDoorStatus();
-    //}
 }

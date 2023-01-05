@@ -6677,12 +6677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbfdc67c3505b294b9d3c35ca96153fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useXRotation: 1
-  useYRotation: 0
-  rotationXSpeed: 5
-  rotationYSpeed: 5
-  minXAngle: -60
-  maxXAngle: 60
+  rotationSpeed: 5
+  minAngle: -60
+  maxAngle: 60
 --- !u!1001 &114579947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7343,10 +7340,7 @@ MonoBehaviour:
         m_CallState: 2
   cancelTextGO: {fileID: 1780917401}
   interactTextGO: {fileID: 1045770806}
-  interactTextTMP: {fileID: 1045770808}
-  myInteractText: Get Code
-  interacted: 0
-  playerInRange: 0
+  myInteractText: Get a code
   keyText: {fileID: 1333975686}
   keyScreenImage: {fileID: 689739058}
 --- !u!1001 &251586119
@@ -15902,10 +15896,7 @@ MonoBehaviour:
         m_CallState: 2
   cancelTextGO: {fileID: 1780917401}
   interactTextGO: {fileID: 1045770806}
-  interactTextTMP: {fileID: 1045770808}
-  myInteractText: Enter Code
-  interacted: 0
-  playerInRange: 0
+  myInteractText: Enter your code
   keyPad: {fileID: 1616455890}
   door: {fileID: 1918743280777076830}
 --- !u!4 &844936307 stripped
@@ -16247,7 +16238,6 @@ GameObject:
   - component: {fileID: 933163081}
   - component: {fileID: 933163085}
   - component: {fileID: 933163083}
-  - component: {fileID: 933163084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16299,24 +16289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
---- !u!114 &933163084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933163080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfdc67c3505b294b9d3c35ca96153fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useXRotation: 0
-  useYRotation: 1
-  rotationXSpeed: 5
-  rotationYSpeed: 5
-  minXAngle: -60
-  maxXAngle: 60
+  rotationSpeed: 5
 --- !u!54 &933163085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28435,7 +28408,7 @@ MonoBehaviour:
   camLookAtOffset: {x: 0, y: 0, z: 0}
   screen: {fileID: 1990263529}
   door: {fileID: 1918743280777076830}
-  keyButton: {fileID: 203416533}
+  codeGetter: {fileID: 203416533}
 --- !u!1001 &1646731403
 PrefabInstance:
   m_ObjectHideFlags: 0

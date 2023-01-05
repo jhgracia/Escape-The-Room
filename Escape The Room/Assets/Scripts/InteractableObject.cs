@@ -6,45 +6,44 @@ using TMPro;
 
 public abstract class InteractableObject : MonoBehaviour
 {
+    //Every object that will be interacted with using the interact key (E) must inherit from this class
+
+    //Use this event to define what will happen after the object has been successfully interacted with and its job is done (e.g. disable the current object and enable another one)
     [SerializeField] protected UnityEvent OnInteracted;
 
+    //UI elements Interact Text and Cancel Text
     public GameObject cancelTextGO;
     public GameObject interactTextGO;
-    public TextMeshProUGUI interactTextTMP;
+    TextMeshProUGUI interactTextTMP;
 
-    [SerializeField] protected string myInteractText = "Interact";
-
+    //Message to be displayed in the Interact Text
     readonly string commonInteractText = "(E) ";
-    [SerializeField] protected bool interacted;
-    [SerializeField] bool playerInRange;
+    [SerializeField] protected string myInteractText = "Interact"; //Change this in the inheriting object's inspector
+
+    //Control variables
+    protected bool interacted;
+    bool playerInRange;
 
 
-    void Start()
+    protected virtual void Start()
     {
-        if(interactTextGO.activeSelf) DeactivateInteractText();
-        OnStart();
+        //Override if the inheriting object needs to run some extra logic
+
+        interactTextTMP = interactTextGO.GetComponent<TextMeshProUGUI>();
+        if (interactTextGO.activeSelf) DeactivateInteractText();
     }
 
-    void Update()
+    protected virtual void Update()
     {
+        //Override if the inheriting object needs to run some extra logic
+
         if (!playerInRange || interacted) return;
 
         if (MasterManager.main.inputManager.GetInteractValue() > 0)
         {
+            //Listen for the Interact key (E)
             ExecuteInteraction();
         }
-
-        OnUpdate();
-    }
-
-    protected virtual void OnStart()
-    {
-
-    }
-
-    protected virtual void OnUpdate()
-    {
-
     }
 
     void SwitchInteractText(bool active)
@@ -81,4 +80,5 @@ public abstract class InteractableObject : MonoBehaviour
     }
 
     protected abstract void ExecuteInteraction();
+    //Inheriting objects will use this function to do thier job when interacted
 }

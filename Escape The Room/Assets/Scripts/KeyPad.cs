@@ -11,8 +11,21 @@ public class KeyPad : SecondaryCamCaller
     [SerializeField] TextMeshProUGUI screen;
     [SerializeField] Door door;
     [SerializeField] CodeGetter codeGetter;
+    [SerializeField] ConsoleOpenDoor console;
+
+    [SerializeField] Image enterButton;
+    Color colorRed;
+    Color colorGreen;
+    Color colorYellow;
 
     public bool IsDoorOpenning { get; private set; }
+
+    private void Awake()
+    {
+        colorYellow = enterButton.color;
+        colorRed = new Color(255f / 255f, 57f / 255f, 49f / 255f);
+        colorGreen = new Color(108f / 255f, 253f / 255f, 99f / 255f);
+    }
 
     public void AddNumberToScreen(string number)
     {
@@ -33,7 +46,11 @@ public class KeyPad : SecondaryCamCaller
     {
         //Called by the keypad's enter button to try and open the door
 
-        if (screen.text == "0" || codeGetter.Key == 0 || door.IsOpen) return;
+        if (screen.text == "0" || codeGetter.Key == 0 || door.IsOpen)
+        {
+            StartCoroutine(ProcessCode(false));
+            return;
+        }
 
         int localKey;
         if (int.TryParse(screen.text, out localKey))
@@ -41,9 +58,12 @@ public class KeyPad : SecondaryCamCaller
             if (localKey == codeGetter.Key)
             {
                 IsDoorOpenning = true;
-                door.Open(); 
+                StartCoroutine(ProcessCode(true));
+                return;
             }
         }
+
+        StartCoroutine(ProcessCode(false));
     }
 
     public void Activate()
@@ -74,6 +94,21 @@ public class KeyPad : SecondaryCamCaller
             step += Time.deltaTime;
             transform.localScale = Vector3.Lerp(initialScale, targetScale, step);
             yield return null;
+        }
+    }
+
+    IEnumerator ProcessCode(bool isCodeCorrect)
+    {
+        Color tempColor = isCodeCorrect ? colorGreen : colorRed;
+
+        enterButton.color = tempColor;
+        yield return new WaitForSeconds(0.5f);
+        enterButton.color = colorYellow;
+
+        if (isCodeCorrect)
+        {
+            door.Open();
+            console.CloseKeyPad();
         }
     }
 }

@@ -135,6 +135,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -282,6 +286,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6273,7 +6281,7 @@ GameObject:
   - component: {fileID: 93660497}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6507,6 +6515,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 6
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &96880860
@@ -7060,6 +7080,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7192,6 +7216,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4549868059922360, guid: 164bc34a56ac94f74b7bd4fcceab4b17, type: 3}
   m_PrefabInstance: {fileID: 162437130}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &179443261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179443262}
+  - component: {fileID: 179443263}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179443262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179443261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056622334}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179443263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179443261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db23465394f3044592945ffc8591317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSource: {fileID: 933163084}
 --- !u!1001 &189359521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7341,8 +7409,14 @@ MonoBehaviour:
   cancelTextGO: {fileID: 1780917401}
   interactTextGO: {fileID: 1045770806}
   myInteractText: Get a code
+  interactClip: {fileID: 8300000, guid: 7a03c6077ea0ec84a88fac1d395fef00, type: 3}
   keyText: {fileID: 1333975686}
   keyScreenImage: {fileID: 689739058}
+--- !u!4 &250252794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+  m_PrefabInstance: {fileID: 5811939680641837888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &251586119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7571,6 +7645,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &281877013
@@ -8381,6 +8467,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13763,6 +13853,18 @@ MonoBehaviour:
           m_StringArgument: 4
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &418261410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14509,6 +14611,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (8)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -14717,6 +14823,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 0
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &574632022
@@ -14980,6 +15098,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -15044,6 +15166,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15322,6 +15448,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (14)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -15524,6 +15654,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1918743281511881844, guid: 23fd6b9a1ca2a9c4882081038a8623a2, type: 3}
   m_PrefabInstance: {fileID: 1918743280777076829}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &744604565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744604566}
+  - component: {fileID: 744604568}
+  - component: {fileID: 744604567}
+  m_Layer: 0
+  m_Name: House Reverb Zone Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744604566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744604565}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.67, y: 2.077, z: -4.63}
+  m_LocalScale: {x: 18.235521, y: 3.43, z: 9.203997}
+  m_Children: []
+  m_Father: {fileID: 1815270667}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744604567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744604565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0f89236ae882249b203813d5ba0321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioReverbZone: {fileID: 1160569381}
+--- !u!65 &744604568
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744604565}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &745709697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15534,6 +15722,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15600,6 +15792,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15751,6 +15947,18 @@ MonoBehaviour:
           m_StringArgument: 8
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &757294557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15799,6 +16007,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15933,6 +16145,7 @@ MonoBehaviour:
   cancelTextGO: {fileID: 1780917401}
   interactTextGO: {fileID: 1045770806}
   myInteractText: Enter your code
+  interactClip: {fileID: 8300000, guid: 7a03c6077ea0ec84a88fac1d395fef00, type: 3}
   keyPad: {fileID: 1616455890}
   door: {fileID: 1918743280777076830}
 --- !u!4 &844936307 stripped
@@ -16065,7 +16278,7 @@ GameObject:
   - component: {fileID: 919499579}
   m_Layer: 0
   m_Name: Terrain_(-1000.0, 0.0, -1000.0)
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -16274,6 +16487,8 @@ GameObject:
   - component: {fileID: 933163081}
   - component: {fileID: 933163085}
   - component: {fileID: 933163083}
+  - component: {fileID: 933163086}
+  - component: {fileID: 933163084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16326,6 +16541,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 5
+  stepsTime: 0.5
+--- !u!82 &933163084
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933163080}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &933163085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16342,6 +16654,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &933163086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933163080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48862151b9b0dd64197b28915f681af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorSteps:
+  - {fileID: 8300000, guid: e6addbf6c83b992459c02da48a938195, type: 3}
+  - {fileID: 8300000, guid: 5282d14cb6967db4a983bc45d48f668b, type: 3}
+  - {fileID: 8300000, guid: b2943a610e7a57b419faf35424b316d0, type: 3}
+  - {fileID: 8300000, guid: 51e36d69021dbd743b6533dc6bcfa157, type: 3}
+  - {fileID: 8300000, guid: 6a54730a5529d6d48aacf891058aad61, type: 3}
+  grassSteps:
+  - {fileID: 8300000, guid: 72d2ba4cdaa2a3a428144684a39086be, type: 3}
+  - {fileID: 8300000, guid: fa99639ada4ede647ad135c7f5431a31, type: 3}
+  - {fileID: 8300000, guid: 179d33d7c401dc84096fac2e789f7ed8, type: 3}
+  - {fileID: 8300000, guid: 6c2f3473f3d408e4f9c5340d819ff8bb, type: 3}
+  - {fileID: 8300000, guid: 0a7afb728779dca4e88150f00fb5dbca, type: 3}
 --- !u!1 &955648246
 GameObject:
   m_ObjectHideFlags: 0
@@ -21417,7 +21753,7 @@ GameObject:
   - component: {fileID: 1084387549}
   m_Layer: 0
   m_Name: Terrain_(-1000.0, 0.0, 0.0)
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -21575,6 +21911,18 @@ MonoBehaviour:
           m_StringArgument: 3
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1121228199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21708,6 +22056,18 @@ MonoBehaviour:
           m_StringArgument: 9
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1150149426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21820,6 +22180,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4104874642677650, guid: db1a4c8ae12944144b7a56b1adb279c7, type: 3}
   m_PrefabInstance: {fileID: 1153038797}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1160569381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160569382}
+  - component: {fileID: 1160569383}
+  m_Layer: 0
+  m_Name: House Audio Reverb Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160569382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160569381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.74, y: 0, z: -5.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1815270667}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &1160569383
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160569381}
+  m_Enabled: 1
+  m_MinDistance: 10.89
+  m_MaxDistance: 15
+  m_ReverbPreset: 3
+  m_Room: -1000
+  m_RoomHF: -454
+  m_DecayTime: 0.4
+  m_DecayHFRatio: 0.83
+  m_Reflections: -1646
+  m_ReflectionsDelay: 0.002
+  m_Reverb: 53
+  m_ReverbDelay: 0.003
+  m_HFReference: 5000
+  m_Diffusion: 100
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1001 &1165700804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21987,6 +22402,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 5
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1213549973
@@ -22203,6 +22630,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (10)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -22267,6 +22698,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22532,6 +22967,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -22724,6 +23163,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 7
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1365591243
@@ -28479,6 +28930,13 @@ MonoBehaviour:
   codeGetter: {fileID: 203416533}
   console: {fileID: 844936304}
   enterButton: {fileID: 586632205}
+  wrongCodeClip: {fileID: 8300000, guid: 9f3c6db928ecb1448beab3c177426d50, type: 3}
+  correctCodeClip: {fileID: 8300000, guid: 653d6bf9646dbc24086d3ba84c9fc7a4, type: 3}
+  buttonClip:
+  - {fileID: 8300000, guid: eaa1d606509644244bf7bef27db8d62c, type: 3}
+  - {fileID: 8300000, guid: 3dc09c508da688f408a0ebe6516440d8, type: 3}
+  - {fileID: 8300000, guid: 04339ad50b32ebd4b870a2b41bc98ca8, type: 3}
+  - {fileID: 8300000, guid: e05199584c723b443a59eb1bdd6ac406, type: 3}
 --- !u!1001 &1646731403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28646,6 +29104,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1668197469
@@ -28870,6 +29340,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (15)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -29012,6 +29486,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29159,7 +29637,7 @@ GameObject:
   - component: {fileID: 1733037357}
   m_Layer: 0
   m_Name: Terrain_(0.0, 0.0, -1000.0)
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -29486,6 +29964,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 0
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1616455890}
+        m_TargetAssemblyTypeName: KeyPad, Assembly-CSharp
+        m_MethodName: PlayButtonClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1772134616
@@ -30009,6 +30499,9 @@ Transform:
   - {fileID: 495210361}
   - {fileID: 743210025}
   - {fileID: 782411030}
+  - {fileID: 250252794}
+  - {fileID: 1160569382}
+  - {fileID: 744604566}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30058,7 +30551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGlobal: 0
   priority: 0
-  blendDistance: 0.5
+  blendDistance: 1
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 563d169de6dc0df4faccf13948450e62, type: 2}
 --- !u!65 &1845862685
@@ -30531,6 +31024,10 @@ PrefabInstance:
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_Name
       value: greek_floor_stone_1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31107,6 +31604,10 @@ PrefabInstance:
       value: greek_floor_stone_1 (12)
       objectReference: {fileID: 0}
     - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411812297518896, guid: 34d863027af504a739927df283d50f54, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -31269,6 +31770,7 @@ Transform:
   m_Children:
   - {fileID: 1894345927}
   - {fileID: 1346840211}
+  - {fileID: 179443262}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32178,3 +32680,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5a93c3cdca50c49a4dbddae9199bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &5811939680641837888
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1815270667}
+    m_Modifications:
+    - target: {fileID: 5811939680602416823, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.249001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.96599996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9990001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811939680602416826, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6613ff84c4a55546902d21c66c7a355, type: 3}

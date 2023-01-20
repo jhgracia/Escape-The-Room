@@ -8,6 +8,7 @@ public class Door : SecondaryCamCaller
     [Space]
     [Header("Animation")]
     [SerializeField] Animator doorAnimator;
+    [SerializeField] AudioClip doorOpenClip;
 
     public void Open()
     {
@@ -18,6 +19,12 @@ public class Door : SecondaryCamCaller
 
         //Open the door
         StartCoroutine(RunOpenAnimation());
+    }
+
+    public void PlayOpenClip()
+    {
+        //Called by an event in the door animation
+        MasterManager.main.audioManager.playPlayerSound(doorOpenClip);
     }
 
     IEnumerator RunOpenAnimation()

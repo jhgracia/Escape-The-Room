@@ -68,6 +68,7 @@ MonoBehaviour:
   camPositionOffset: {x: -0.6, y: 0, z: -3}
   camLookAtOffset: {x: -0.6, y: 0, z: 0}
   doorAnimator: {fileID: 1918743281511881847}
+  doorOpenClip: {fileID: 8300000, guid: 9b2e5a6b20216e04f99cde3bdb356351, type: 3}
 --- !u!1001 &1918743282556431197
 PrefabInstance:
   m_ObjectHideFlags: 0

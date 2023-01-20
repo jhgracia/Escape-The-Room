@@ -20,6 +20,9 @@ public abstract class InteractableObject : MonoBehaviour
     readonly string commonInteractText = "(E) ";
     [SerializeField] protected string myInteractText = "Interact"; //Change this in the inheriting object's inspector
 
+    //Sound clip to be played when the interaction key is pressed
+    [SerializeField] AudioClip interactClip;
+
     //Control variables
     protected bool interacted;
     bool playerInRange;
@@ -42,8 +45,15 @@ public abstract class InteractableObject : MonoBehaviour
         if (MasterManager.main.inputManager.GetInteractValue() > 0)
         {
             //Listen for the Interact key (E)
+
+            PlayAudioClip();
             ExecuteInteraction();
         }
+    }
+
+    void PlayAudioClip()
+    {
+        MasterManager.main.audioManager.playPlayerSound(interactClip);
     }
 
     void SwitchInteractText(bool active)

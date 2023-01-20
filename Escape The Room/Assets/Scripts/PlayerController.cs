@@ -7,9 +7,19 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3.0f;
     [SerializeField] [Range(1f, 20f)] float rotationSpeed = 5.0f;
+    [SerializeField] float stepsTime = 0.5f;
+    float elapsedTime;
+    FootStepsManager footStepsManager;
+
+    private void Awake()
+    {
+        footStepsManager = GetComponent<FootStepsManager>();
+    }
 
     private void FixedUpdate()
     {
+        elapsedTime += Time.deltaTime;
+
         if (MasterManager.main.gameManager.UseMoveAndLook)
         {
             Move();
@@ -25,6 +35,12 @@ public class PlayerController : MonoBehaviour
         float z = MasterManager.main.inputManager.MoveValue.y;
         Vector3 moveDirection = new Vector3(x, 0f, z);
         transform.Translate(moveSpeed * Time.deltaTime * moveDirection);
+
+        if (elapsedTime >= stepsTime)
+        {
+            footStepsManager.PlayStep();
+            elapsedTime = 0f;
+        }
     }
 
     void Look()

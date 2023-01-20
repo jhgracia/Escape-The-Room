@@ -10,6 +10,7 @@ public class MasterManager : MonoBehaviour
     //Managers instances
     public GameManager gameManager { get; private set; }
     public InputManager inputManager { get; private set; }
+    public AudioManager audioManager { get; private set; }
 
     private void Awake()
     {
@@ -28,5 +29,6 @@ public class MasterManager : MonoBehaviour
     {
         gameManager = GetComponentInChildren<GameManager>();
         inputManager = GetComponentInChildren<InputManager>();
+        audioManager = GetComponentInChildren<AudioManager>();
     }
 }

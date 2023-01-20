@@ -16,13 +16,15 @@ public class KeyPad : SecondaryCamCaller
     [SerializeField] Image enterButton;
     Color colorRed;
     Color colorGreen;
-    Color colorYellow;
+
+    [SerializeField] AudioClip wrongCodeClip;
+    [SerializeField] AudioClip correctCodeClip;
+    [SerializeField] List<AudioClip> buttonClip = new List<AudioClip>();
 
     public bool IsDoorOpenning { get; private set; }
 
     private void Awake()
     {
-        colorYellow = enterButton.color;
         colorRed = new Color(255f / 255f, 57f / 255f, 49f / 255f);
         colorGreen = new Color(108f / 255f, 253f / 255f, 99f / 255f);
     }
@@ -82,6 +84,21 @@ public class KeyPad : SecondaryCamCaller
         if (!IsDoorOpenning) ResetCamera();
     }
 
+    public void PlayButtonClip()
+    {
+        //Selects a random clip to play when pressing the keypad's buttons
+
+        AudioClip clip = buttonClip[Random.Range(0, buttonClip.Count)];
+        PlayClip(clip);
+    }
+
+    void PlayClip(AudioClip clip)
+    {
+        //Plays the selected clip
+
+        MasterManager.main.audioManager.playPlayerSound(clip);
+    }
+
     IEnumerator ScaleKeyPad(Vector3 targetScale)
     {
         Vector3 initialScale = transform.localScale;
@@ -99,11 +116,14 @@ public class KeyPad : SecondaryCamCaller
 
     IEnumerator ProcessCode(bool isCodeCorrect)
     {
-        Color tempColor = isCodeCorrect ? colorGreen : colorRed;
+        Color defaultColor = enterButton.color;
 
-        enterButton.color = tempColor;
+        enterButton.color = isCodeCorrect ? colorGreen : colorRed;
+        PlayClip(isCodeCorrect ? correctCodeClip : wrongCodeClip);
+
         yield return new WaitForSeconds(0.5f);
-        enterButton.color = colorYellow;
+
+        enterButton.color = defaultColor;
 
         if (isCodeCorrect)
         {

@@ -28,7 +28,7 @@ public class SecondaryCam : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(lookAtPosition - targetPosition);
 
-        MasterManager.main.gameManager.SwitchToSecondaryCam();
+        MasterManager.Instance.gameManager.SwitchToSecondaryCam();
         transform.SetParent(null, true);
         StartTransition(targetPosition, targetRotation);
     }
@@ -105,6 +105,6 @@ public class SecondaryCam : MonoBehaviour
         yield return new WaitUntil(() => !IsRotating && !IsMoving);
 
         //Switch to the main camera
-        MasterManager.main.gameManager.SwitchToMainCam();
+        MasterManager.Instance.gameManager.SwitchToMainCam();
     }
 }

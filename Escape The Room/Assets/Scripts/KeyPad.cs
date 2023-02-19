@@ -96,7 +96,7 @@ public class KeyPad : SecondaryCamCaller
     {
         //Plays the selected clip
 
-        MasterManager.main.audioManager.playPlayerSound(clip);
+        MasterManager.Instance.audioManager.playPlayerSound(clip);
     }
 
     IEnumerator ScaleKeyPad(Vector3 targetScale)

@@ -24,7 +24,7 @@ public class Door : SecondaryCamCaller
     public void PlayOpenClip()
     {
         //Called by an event in the door animation
-        MasterManager.main.audioManager.playPlayerSound(doorOpenClip);
+        MasterManager.Instance.audioManager.playPlayerSound(doorOpenClip);
     }
 
     IEnumerator RunOpenAnimation()

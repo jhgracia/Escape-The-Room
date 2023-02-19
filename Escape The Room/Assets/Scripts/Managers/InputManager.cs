@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputManager : Singleton<InputManager>
 {
     PlayerInput playerInput;
     InputAction moveAction;
@@ -13,26 +13,28 @@ public class InputManager : MonoBehaviour
 
     Vector2 m_MoveValue;
     Vector2 m_LookValue;
+    bool m_IsCancelPerformed;
 
     public Vector2 MoveValue { get { return m_MoveValue.normalized; } }
     public Vector2 LookValue { get { return m_LookValue; } }
+    public bool IsCancelPerformed { get { return m_IsCancelPerformed; } }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
         interactAction = playerInput.actions["Interact"];
         cancelAction = playerInput.actions["Cancel"];
-
-        m_MoveValue = Vector2.zero;
-        m_LookValue = Vector2.zero;
     }
 
     void Update()
     {
         UpdateMoveValue();
         UpdateLookValue();
+        UpdateCancelValue();
     }
 
     void UpdateMoveValue()
@@ -45,13 +47,15 @@ public class InputManager : MonoBehaviour
         m_LookValue = lookAction.ReadValue<Vector2>();
     }
 
-    public float GetInteractValue()
+    void UpdateCancelValue()
     {
-        return interactAction.ReadValue<float>();
+        // This is used to pause/unpause the game and to cancel interaction with objects
+        m_IsCancelPerformed = cancelAction.WasPerformedThisFrame();
     }
 
-    public float GetCancelValue()
+    public bool IsInteractPerformed()
     {
-        return cancelAction.ReadValue<float>();
+        //This is validated by interactable objects only when the player is within interaction range, so there's no need to keep an updated variable every frame
+        return interactAction.WasPerformedThisFrame();
     }
 }

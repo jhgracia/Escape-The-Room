@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
 
 public abstract class InteractableObject : MonoBehaviour
 {
@@ -10,11 +9,6 @@ public abstract class InteractableObject : MonoBehaviour
 
     //Use this event to define what will happen after the object has been successfully interacted with and its job is done (e.g. disable the current object and enable another one)
     [SerializeField] protected UnityEvent OnInteracted;
-
-    //UI elements Interact Text and Cancel Text
-    public GameObject cancelTextGO;
-    public GameObject interactTextGO;
-    TextMeshProUGUI interactTextTMP;
 
     //Message to be displayed in the Interact Text
     readonly string commonInteractText = "(E) ";
@@ -27,22 +21,13 @@ public abstract class InteractableObject : MonoBehaviour
     protected bool interacted;
     bool playerInRange;
 
-
-    protected virtual void Start()
-    {
-        //Override if the inheriting object needs to run some extra logic
-
-        interactTextTMP = interactTextGO.GetComponent<TextMeshProUGUI>();
-        if (interactTextGO.activeSelf) DeactivateInteractText();
-    }
-
     protected virtual void Update()
     {
         //Override if the inheriting object needs to run some extra logic
 
         if (!playerInRange || interacted) return;
 
-        if (MasterManager.main.inputManager.GetInteractValue() > 0)
+        if (MasterManager.Instance.inputManager.IsInteractPerformed())
         {
             //Listen for the Interact key (E)
 
@@ -53,24 +38,22 @@ public abstract class InteractableObject : MonoBehaviour
 
     void PlayAudioClip()
     {
-        MasterManager.main.audioManager.playPlayerSound(interactClip);
-    }
-
-    void SwitchInteractText(bool active)
-    {
-        interactTextGO.SetActive(active);
+        MasterManager.Instance.audioManager.playPlayerSound(interactClip);
     }
 
     protected void ActivateInteractText()
     {
-        SwitchInteractText(true);
-        interactTextTMP.SetText(commonInteractText + myInteractText);
+        MasterManager.Instance.uiManager.ActivateInteractText(commonInteractText + myInteractText);
     }
 
     protected void DeactivateInteractText()
     {
-        interactTextTMP.SetText("");
-        SwitchInteractText(false);
+        MasterManager.Instance.uiManager.DeactivateInteractText();
+    }
+
+    protected void ToggleCancelText(bool active)
+    {
+        MasterManager.Instance.uiManager.ToggleCancelText(active);
     }
 
     private void OnCollisionEnter(Collision collision)

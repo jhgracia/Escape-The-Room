@@ -11,8 +11,8 @@ public class ConsoleOpenDoor : InteractableObject
     protected override void ExecuteInteraction()
     {
         DeactivateInteractText();
-        cancelTextGO.SetActive(true);
-        MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.None);
+        ToggleCancelText(true);
+        MasterManager.Instance.gameManager.CurrentGameStatus = GameManager.GameStatus.interact;
         keyPad.Activate();
     }
 
@@ -20,9 +20,9 @@ public class ConsoleOpenDoor : InteractableObject
     {
         base.Update();
 
-        if (!cancelTextGO.activeSelf) return;
+        if (MasterManager.Instance.gameManager.CurrentGameStatus != GameManager.GameStatus.interact) return;
 
-        if (MasterManager.main.inputManager.GetCancelValue() > 0)
+        if (MasterManager.Instance.inputManager.IsCancelPerformed)
         {
             //Listen for the Cancel key (Esc)
             CloseKeyPad();
@@ -31,8 +31,7 @@ public class ConsoleOpenDoor : InteractableObject
 
     public void CloseKeyPad()
     {
-        cancelTextGO.SetActive(false);
-        MasterManager.main.gameManager.ChangeCursorLockState(CursorLockMode.Locked);
+        ToggleCancelText(false);
         keyPad.Deactivate();
 
         if (keyPad.IsDoorOpenning)

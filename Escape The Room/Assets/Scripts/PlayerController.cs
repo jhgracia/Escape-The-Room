@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
         footStepsManager = GetComponent<FootStepsManager>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         elapsedTime += Time.deltaTime;
 
-        if (MasterManager.main.gameManager.UseMoveAndLook)
+        if (MasterManager.Instance.gameManager.AllowPlayerInput)
         {
             Move();
             Look();
@@ -29,10 +29,10 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        if (MasterManager.main.inputManager.MoveValue == Vector2.zero) return;
+        if (MasterManager.Instance.inputManager.MoveValue == Vector2.zero) return;
 
-        float x = MasterManager.main.inputManager.MoveValue.x;
-        float z = MasterManager.main.inputManager.MoveValue.y;
+        float x = MasterManager.Instance.inputManager.MoveValue.x;
+        float z = MasterManager.Instance.inputManager.MoveValue.y;
         Vector3 moveDirection = new Vector3(x, 0f, z);
         transform.Translate(moveSpeed * Time.deltaTime * moveDirection);
 
@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
 
     void Look()
     {
-        if (MasterManager.main.inputManager.LookValue.x != 0f)
+        if (MasterManager.Instance.inputManager.LookValue.x != 0f)
         {
-            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * MasterManager.main.inputManager.LookValue.x);
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * MasterManager.Instance.inputManager.LookValue.x);
         }
     }
 }

@@ -11,7 +11,13 @@ public class Goal : MonoBehaviour
     {
         if (!other.CompareTag("Player") || isClipTriggered) return;
 
-        MasterManager.main.audioManager.playPlayerSound(goalClip);
+        MasterManager.Instance.audioManager.playPlayerSound(goalClip);
         isClipTriggered = true;
+        Invoke("ChangeGameStatus", 3f);
+    }
+
+    void ChangeGameStatus()
+    {
+        MasterManager.Instance.gameManager.CurrentGameStatus = GameManager.GameStatus.levelEnding;
     }
 }

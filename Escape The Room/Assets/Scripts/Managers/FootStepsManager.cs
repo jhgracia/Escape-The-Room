@@ -17,7 +17,7 @@ public class FootStepsManager : MonoBehaviour
         SelectSurface();
         SelectStepList();
         AudioClip clip = currentList[Random.Range(0, currentList.Count)];
-        MasterManager.main.audioManager.playPlayerSound(clip);
+        MasterManager.Instance.audioManager.playPlayerSound(clip);
     }
 
     void SelectSurface()
